@@ -8,17 +8,16 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * @author Ronish Prajapati
- * LMU ID: 23048584
+ * Servlet implementation class RegisterController
  */
-@WebServlet(asyncSupported = true, urlPatterns = { "/home",  "/" })
-public class HomeController extends HttpServlet {
+@WebServlet(asyncSupported = true, urlPatterns = { "/stdRegister" })
+public class RegisterController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public HomeController() {
+    public RegisterController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -28,7 +27,7 @@ public class HomeController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		request.getRequestDispatcher("WEB-INF/pages/home.jsp").forward(request, response);
+		request.getRequestDispatcher("WEB-INF/pages/stdRegister.jsp").forward(request, response);
 	}
 
 	/**
@@ -36,7 +35,18 @@ public class HomeController extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		String firstName = request.getParameter("first-name");
+		String lastName = request.getParameter("last-name");
+		System.out.println(firstName);
+		System.out.println(lastName);
+		if(firstName.length()< 5) {
+			request.setAttribute("error", "First-name should be more that 5 letters.");
+			request.getRequestDispatcher("WEB-INF/pages/stdRegister.jsp").forward(request, response);;
+		}
+		else {
+			response.sendRedirect("home");
+		}
+		
 	}
 
 }

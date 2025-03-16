@@ -6,9 +6,9 @@
 <meta charset="UTF-8">
 <title>Home</title>
 <link rel="stylesheet" type="text/css"
-	href="../css/header.css" />
+	href="${pageContext.request.contextPath}/css/header.css" />
 <link rel="stylesheet" type="text/css"
-	href="../css/home.css" />
+	href="${pageContext.request.contextPath}/css/home.css" />
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath}/css/footer.css" />
 </head>

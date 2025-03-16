@@ -58,6 +58,13 @@ select {
 	appearance: none;
 }
 
+form {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center; 
+}
+
 button {
 	background-color: #8080c0;
 	color: white;
