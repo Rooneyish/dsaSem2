@@ -8,8 +8,7 @@
 			<li><a href="#">About</a></li>
 			<li><a href="#">Portfolio</a></li>
 			<li><a href="#">Contact</a></li>
-			<li><a href="login">Login</a></li>
-			<li><a href ="stdRegister">Register Student</a></li>
+			<li><a href="login">Log-Out</a></li>
 		</ul>
 	</header>
 </div>

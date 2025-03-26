@@ -34,7 +34,7 @@
 							id="phone-number" name="phone-number" required>
 					</div>
 					<div class="form">
-						<label for="password">Password:</label> <input type="text"
+						<label for="password">Password:</label> <input type="password"
 							id="password" name="password" required>
 					</div>
 				</div>
@@ -63,7 +63,7 @@
 					</div>
 					<div class="form">
 						<label for="re-password">Confirm Password:</label> <input
-							type="text" id="re-password" name="re-password" required>
+							type="password" id="re-password" name="re-password" required>
 					</div>
 				</div>
 
@@ -72,6 +72,12 @@
 				<button type="submit">Submit</button>
 			</div>
 		</form>
+		<div>
+			<form action="stdRegister" method="post">
+				<button class="already-registered" type="submit" name="action" value="already-registered">Already
+					Registered?</button>
+			</form>
+		</div>
 	</div>
 </body>
 </html>

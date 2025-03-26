@@ -18,7 +18,7 @@
 <body>
 	<div class="login-box">
 		<h2>Login</h2>
-		<form action="#">
+		<form action="login" method="post">
 			<div class="row">
 				<div class="col">
 					<label for="username">Username:</label> <input type="text"
