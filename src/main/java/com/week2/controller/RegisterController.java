@@ -82,8 +82,9 @@ public class RegisterController extends HttpServlet {
 	        request.getRequestDispatcher("WEB-INF/pages/stdRegister.jsp").forward(request, response);
 	        return;
 	    }
-
-		response.sendRedirect("home");
+	    request.getSession().setAttribute("registeredUsername", username);
+	    request.getSession().setAttribute("registeredPassword", password);
+		response.sendRedirect("login");
 		
 	}
 

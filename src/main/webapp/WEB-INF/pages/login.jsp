@@ -16,8 +16,19 @@
 	href="${pageContext.request.contextPath}/css/footer.css" />
 </head>
 <body>
+
 	<div class="login-box">
 		<h2>Login</h2>
+		<%
+		if (request.getAttribute("error") != null) {
+		%>
+		<p style="color: red">
+			<%=request.getAttribute("error")%>
+		</p>
+		<%
+		}
+		%>
+
 		<form action="login" method="post">
 			<div class="row">
 				<div class="col">
@@ -33,6 +44,14 @@
 			</div>
 			<button type="submit" class="login-button">Login</button>
 		</form>
+		<div>
+			<form action="login" method="post">
+				<button class="not-registered" type="submit" name="action"
+					value="not-registered">Not Registered? Sign-Up</button>
+			</form>
+		</div>
+
 	</div>
+
 </body>
 </html>

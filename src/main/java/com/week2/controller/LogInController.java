@@ -39,15 +39,28 @@ public class LogInController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String username = request.getParameter("username");
-		String password = request.getParameter("password");
-		String originalUsername = "ron";
-		String originalPassword = "123";
-		if (!username.equals(originalUsername) && !password.equals(originalPassword)) {
-			request.setAttribute("error", "First-name should be more than 5 letters.");
+		String action = request.getParameter("action");
+		System.out.println("Action received: " + action);
+
+		if ("not-registered".equals(action)) {
+			response.sendRedirect("register");
+			return;
+		}
+
+		String registeredUsername = (String) request.getSession().getAttribute("registeredUsername");
+		String registeredPassword = (String) request.getSession().getAttribute("registeredPassword");
+
+	    String username = request.getParameter("username").trim();
+	    String password = request.getParameter("password").trim();
+		
+		if (registeredUsername == null || registeredPassword == null || !username.equals(registeredUsername)
+				|| !password.equals(registeredPassword)) {
+			request.setAttribute("error", "Invalid username or password. Please try again.");
 			request.getRequestDispatcher("WEB-INF/pages/login.jsp").forward(request, response);
 			return;
 		}
+
+		request.getSession().setAttribute("username", username);
 		response.sendRedirect("home");
 	}
 
